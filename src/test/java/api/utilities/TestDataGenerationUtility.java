@@ -2,6 +2,11 @@ package api.utilities;
 
 import api.payload.User;
 import com.github.javafaker.Faker;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class TestDataGenerationUtility {
     public User userPayload;
@@ -52,5 +57,46 @@ public class TestDataGenerationUtility {
         return userPayload;
     }
 
+
+    //method to create excel file if given name does not exist
+    public XSSFWorkbook createExcelFile(String fileName, String sheetName) throws Exception {
+        String path = System.getProperty("user.dir") + "/testdata/" + fileName + ".xlsx";
+        //if path does not exist, create file
+        if (!new File(path).exists()) {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet(sheetName);
+            FileOutputStream fo = new FileOutputStream(path);
+            workbook.write(fo);
+            workbook.close();
+            fo.close();
+            return workbook;
+        }
+        else {
+            System.out.println("File already exists");
+            return null;
+        }
+    }
+
+    public XSSFWorkbook insertDataIntoExcelWorkbook(XSSFWorkbook workbook, User[] userPayloadArray, String sheetName){
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+        for(int i = 0; i < userPayloadArray.length; i++){
+            sheet.createRow(i + 1).createCell(0).setCellValue(userPayloadArray[i].getId());
+            sheet.getRow(i + 1).createCell(1).setCellValue(userPayloadArray[i].getUsername());
+            sheet.getRow(i + 1).createCell(2).setCellValue(userPayloadArray[i].getFirstName());
+            sheet.getRow(i + 1).createCell(3).setCellValue(userPayloadArray[i].getLastName());
+            sheet.getRow(i + 1).createCell(4).setCellValue(userPayloadArray[i].getEmail());
+            sheet.getRow(i + 1).createCell(5).setCellValue(userPayloadArray[i].getPassword());
+            sheet.getRow(i + 1).createCell(6).setCellValue(userPayloadArray[i].getPhone());
+        }
+        return workbook;
+    }
+
+    public void writeExcelWorkbookToFile(XSSFWorkbook workbook, String fileName) throws Exception {
+        String path = System.getProperty("user.dir") + "/testdata/" + fileName + ".xlsx";
+        FileOutputStream fo = new FileOutputStream(path);
+        workbook.write(fo);
+        workbook.close();
+        fo.close();
+    }
 
 }
