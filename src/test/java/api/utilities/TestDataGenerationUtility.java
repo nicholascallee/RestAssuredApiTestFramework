@@ -16,13 +16,12 @@ public class TestDataGenerationUtility {
     public TestDataGenerationUtility(){
         faker = new Faker();
         userPayload = new User();
-
     }
 
     public User[] generateUserPayloads(int countOfPayloads, int passwordMin, int passwordMax){
         for(int i = 0; i < countOfPayloads; i++){
+            userPayload = new User();
             userPayload = generateUserPayload(passwordMin, passwordMax);
-            userPayload.setPhone(faker.phoneNumber().cellPhone());
             userPayloadArray[i] = userPayload;
         }
         return userPayloadArray;
@@ -47,6 +46,7 @@ public class TestDataGenerationUtility {
     }
 
     public User generateUserPayload(int passwordMin, int passwordMax){
+        faker = new Faker();
         userPayload.setId(faker.idNumber().hashCode());
         userPayload.setUsername(faker.name().username());
         userPayload.setFirstName(faker.name().firstName());
@@ -67,7 +67,6 @@ public class TestDataGenerationUtility {
             XSSFSheet sheet = workbook.createSheet(sheetName);
             FileOutputStream fo = new FileOutputStream(path);
             workbook.write(fo);
-            workbook.close();
             fo.close();
             return workbook;
         }
@@ -97,6 +96,14 @@ public class TestDataGenerationUtility {
         workbook.write(fo);
         workbook.close();
         fo.close();
+    }
+
+    public void generateTestData(String fileName, String sheetName, int countOfPayloads, int passwordMin, int passwordMax) throws Exception {
+        XSSFWorkbook workbook = createExcelFile(fileName, sheetName);
+        userPayloadArray = new User[countOfPayloads];
+        userPayloadArray = generateUserPayloads(countOfPayloads, passwordMin, passwordMax);
+        workbook = insertDataIntoExcelWorkbook(workbook, userPayloadArray, sheetName);
+        writeExcelWorkbookToFile(workbook, fileName);
     }
 
 }

@@ -2,6 +2,7 @@ package api.test;
 
 import api.endpoints.UserEndPoints;
 import api.payload.User;
+import api.utilities.TestDataGenerationUtility;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -61,5 +62,12 @@ public class UserTests {
         response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
+    }
+
+
+    @Test
+    public void generateUserDataFile() throws Exception {
+        TestDataGenerationUtility mine = new TestDataGenerationUtility();
+        mine.generateTestData("TestData", "Sheet1", 100, 8, 12);
     }
 }
