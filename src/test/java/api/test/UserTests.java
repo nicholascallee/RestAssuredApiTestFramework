@@ -37,7 +37,7 @@ public class UserTests {
         Response response = UserEndPoints.readUser(userPayload.getUsername());
         response.then().log().all();
 
-        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
     @Test(priority = 3)

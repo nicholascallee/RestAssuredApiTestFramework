@@ -22,9 +22,9 @@ public class UserEndPoints {
     public static Response readUser(String username)
     {
         Response response = given()
-                .pathParam("username", username)
+            .pathParam("username", username)
             .when()
-            .post(Routes.GET_USER_URL);
+            .get(Routes.GET_USER_URL);
         return response;
     }
 
