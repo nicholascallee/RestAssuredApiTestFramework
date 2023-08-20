@@ -5,7 +5,6 @@ import com.github.javafaker.Faker;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileOutputStream;
 
 public class TestDataGenerationUtility {
@@ -61,19 +60,12 @@ public class TestDataGenerationUtility {
     //method to create excel file if given name does not exist
     public XSSFWorkbook createExcelFile(String fileName, String sheetName) throws Exception {
         String path = System.getProperty("user.dir") + "/testdata/" + fileName + ".xlsx";
-        //if path does not exist, create file
-        if (!new File(path).exists()) {
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet(sheetName);
-            FileOutputStream fo = new FileOutputStream(path);
-            workbook.write(fo);
-            fo.close();
-            return workbook;
-        }
-        else {
-            System.out.println("File already exists");
-            return null;
-        }
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet(sheetName);
+        FileOutputStream fo = new FileOutputStream(path);
+        workbook.write(fo);
+        fo.close();
+        return workbook;
     }
 
     public XSSFWorkbook insertDataIntoExcelWorkbook(XSSFWorkbook workbook, User[] userPayloadArray, String sheetName){
