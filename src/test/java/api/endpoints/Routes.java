@@ -8,4 +8,5 @@ public class Routes {
     public static final String GET_USER_URL = USER_URL + "/{username}";
     public static final String STORE_URL = BASE_URL + "/store";
 
+
 }
