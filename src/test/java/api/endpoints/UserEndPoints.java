@@ -34,7 +34,17 @@ public class UserEndPoints {
             .pathParam("username", username)
             .body(payload)
             .when()
-            .put(Routes.USER_URL);
+            .put(Routes.GET_USER_URL);
+        return response;
+    }
+
+    //delete user
+    public static Response deleteUser(String username)
+    {
+        Response response = given()
+            .pathParam("username", username)
+            .when()
+            .delete(Routes.GET_USER_URL);
         return response;
     }
 
