@@ -25,7 +25,7 @@ public class DataProviderUtility {
         ExcelUtility excel = new ExcelUtility(path);
         int rowNum = excel.getRowCount("Sheet1");
         String usernameData[] = new String[rowNum];
-        for (int i = 1; i <= rowNum; i++) {
+        for (int i = 1; i < rowNum + 1; i++) {
             usernameData[i - 1] = excel.getCellData("Sheet1", i, 1);
         }
         return usernameData;
