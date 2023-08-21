@@ -46,7 +46,7 @@ public class TestDataGenerationUtility {
 
     public User generateUserPayload(int passwordMin, int passwordMax){
         faker = new Faker();
-        userPayload.setId(faker.idNumber().hashCode());
+        userPayload.setId(faker.number().numberBetween(1, 1000000));
         userPayload.setUsername(faker.name().username());
         userPayload.setFirstName(faker.name().firstName());
         userPayload.setLastName(faker.name().lastName());

@@ -1,11 +1,11 @@
 package api.utilities;
+
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -55,7 +55,8 @@ public class ExcelUtility {
         try {
             data = cell.getStringCellValue();
         } catch (Exception e) {
-            data = "";
+            Double doubleCellValue = cell.getNumericCellValue();
+            data = doubleCellValue.toString();
         }
         workbook.close();
         fi.close();

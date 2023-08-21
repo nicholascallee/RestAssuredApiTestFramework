@@ -13,9 +13,12 @@ public class DataDrivenTests {
     public void testPostUser(String id, String username, String firstName, String lastName, String email, String password, String phone) {
         //TODO: fix the id here so it actually works
         User userPayload = new User();
+        Float floatId = null;
         Integer intId = null;
         try{
-            intId = Integer.parseInt(id);
+            // id to float to int
+            floatId = Float.parseFloat(id);
+            intId = floatId.intValue();
         }
         catch (NumberFormatException e){
             System.out.println("Error converting id to integer");
