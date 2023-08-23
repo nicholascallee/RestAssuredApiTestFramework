@@ -39,3 +39,4 @@ build/
 
 ### Framework Specific ###
 /testData/
+/logs/
