@@ -64,10 +64,4 @@ public class UserTests {
         Assert.assertEquals(response.statusCode(), 200);
     }
 
-
-    @Test
-    public void generateUserDataFile() throws Exception {
-        TestDataGenerationUtility mine = new TestDataGenerationUtility();
-        mine.generateTestData("TestData", "Sheet1", 100, 8, 12);
-    }
 }
