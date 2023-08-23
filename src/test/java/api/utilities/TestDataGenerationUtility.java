@@ -1,6 +1,6 @@
 package api.utilities;
 
-import api.payload.User;
+import api.payloads.User;
 import com.github.javafaker.Faker;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;

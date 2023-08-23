@@ -1,7 +1,7 @@
-package api.test;
+package api.tests;
 
 import api.endpoints.UserEndPoints;
-import api.payload.User;
+import api.payloads.User;
 import api.utilities.DataProviderUtility;
 import api.utilities.TestDataGenerationUtility;
 import io.restassured.response.Response;

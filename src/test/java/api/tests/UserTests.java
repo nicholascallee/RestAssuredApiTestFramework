@@ -1,8 +1,7 @@
-package api.test;
+package api.tests;
 
 import api.endpoints.UserEndPoints;
-import api.payload.User;
-import api.utilities.TestDataGenerationUtility;
+import api.payloads.User;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.testng.Assert;
