@@ -13,6 +13,7 @@ Rest Assured Api Test Automation Framework for testing Swagger Petstore Samples.
 - Jenkins CI/CD Integration
 
 ### Sample Photos
+
 ### User Test:
 ![image](https://github.com/nicholascallee/RestAssuredApiTestFramework/assets/141438641/1eb96f85-386e-446c-b873-7b9e021ce080)
 
