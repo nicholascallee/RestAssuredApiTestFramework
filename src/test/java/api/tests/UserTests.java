@@ -1,6 +1,6 @@
 package api.tests;
 
-import api.endpoints.UserEndPoints;
+import api.endpoints.UserEndPoints2;
 import api.payloads.User;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
@@ -35,7 +35,7 @@ public class UserTests {
     @Test(priority = 1)
     public void TestPostUser() {
         logger.info("Creating user: " + userPayload.getUsername());
-        Response response = UserEndPoints.createUser(userPayload);
+        Response response = UserEndPoints2.createUser(userPayload);
         response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
@@ -45,7 +45,7 @@ public class UserTests {
     @Test(priority = 2)
     public void TestGetUser() {
         logger.info("Reading user: " + userPayload.getUsername());
-        Response response = UserEndPoints.readUser(userPayload.getUsername());
+        Response response = UserEndPoints2.readUser(userPayload.getUsername());
         response.then().log().all();
 
         Assert.assertEquals(response.getStatusCode(), 200);
@@ -62,7 +62,7 @@ public class UserTests {
         userPayload.setPassword(faker.internet().password(8, 12));
         userPayload.setPhone(faker.phoneNumber().cellPhone());
 
-        Response response = UserEndPoints.updateUser(userPayload.getUsername(), userPayload);
+        Response response = UserEndPoints2.updateUser(userPayload.getUsername(), userPayload);
         response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
@@ -72,7 +72,7 @@ public class UserTests {
     @Test(priority = 4)
     public void TestDeleteUser() {
         logger.info("Deleting user: " + userPayload.getUsername());
-        Response response = UserEndPoints.deleteUser(userPayload.getUsername());
+        Response response = UserEndPoints2.deleteUser(userPayload.getUsername());
         response.then().log().all();
 
         Assert.assertEquals(response.statusCode(), 200);
