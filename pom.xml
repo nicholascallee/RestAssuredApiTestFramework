@@ -74,19 +74,6 @@
             <artifactId>json-schema-validator</artifactId>
             <version>5.1.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-apis -->
-        <!-- reuquired for OAuth 1 and OAuth 2 authentications -->
-        <dependency>
-            <groupId>com.github.scribejava</groupId>
-            <artifactId>scribejava-apis</artifactId>
-            <version>8.3.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>5.1.1</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
