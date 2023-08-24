@@ -18,7 +18,8 @@ Rest Assured Api Test Automation Framework for testing Swagger Petstore Samples.
 ![image](https://github.com/nicholascallee/RestAssuredApiTestFramework/assets/141438641/1eb96f85-386e-446c-b873-7b9e021ce080)
 
 ### Data Driven Test:
-![image](https://github.com/nicholascallee/RestAssuredApiTestFramework/assets/141438641/9eb5184e-c8ae-4b7d-840f-e81c77e0a4cd)
+![image](https://github.com/nicholascallee/RestAssuredApiTestFramework/assets/141438641/ed4ad73f-4b7d-4678-ae9d-6aa482eaf3ad)
+
 
 
 ### Build and Execution on Jenkins:
