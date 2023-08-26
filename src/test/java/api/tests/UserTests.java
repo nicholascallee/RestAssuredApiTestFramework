@@ -38,6 +38,7 @@ public class UserTests {
         Response response = UserEndPoints2.createUser(userPayload);
         response.then().log().all();
 
+
         Assert.assertEquals(response.statusCode(), 200);
         logger.info("User created successfully");
     }
@@ -70,6 +71,19 @@ public class UserTests {
     }
 
     @Test(priority = 4)
+    public void TestLoginUser(){
+        Response response = UserEndPoints2.loginUser(userPayload);
+        response.then().log().all();
+    }
+
+    @Test(priority =5)
+    public void TestLogoutUser(){
+        Response response = UserEndPoints2.logoutUser();
+        response.then().log().all();
+    }
+
+
+    @Test(priority = 6)
     public void TestDeleteUser() {
         logger.info("Deleting user: " + userPayload.getUsername());
         Response response = UserEndPoints2.deleteUser(userPayload.getUsername());

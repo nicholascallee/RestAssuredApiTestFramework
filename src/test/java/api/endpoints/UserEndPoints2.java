@@ -58,4 +58,19 @@ public class UserEndPoints2 {
         return response;
     }
 
+    public static Response loginUser(User payload){
+        String loginUserUrl = getUrl().getString("LOGIN_USER_URL");
+        Response response = given()
+                .queryParam("username",payload.getUsername())
+                .queryParam("password",payload.getPassword())
+                .get(loginUserUrl);
+        return response;
+    }
+
+    public static Response logoutUser(){
+        String logoutUserUrl = getUrl().getString("LOGOUT_USER_URL");
+        Response response = given()
+                .get(logoutUserUrl);
+        return response;
+    }
 }
