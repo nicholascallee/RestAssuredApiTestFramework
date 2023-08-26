@@ -73,4 +73,15 @@ public class UserEndPoints2 {
                 .get(logoutUserUrl);
         return response;
     }
+
+    public static Response createUsersWithArray(User[] userArrayPayload){
+        String createUsersWithArrayUrl = getUrl().getString("CREATE_USERS_WITH_ARRAY_URL");
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body(userArrayPayload)
+                .when()
+                .post(createUsersWithArrayUrl);
+        return response;
+    }
 }
